@@ -6,9 +6,8 @@ package api
 
 import (
 	"context"
+	"github.com/influxdata/influxdb-client-go/v2/domain"
 	"time"
-
-	"github.com/wattch/influxdb-client-go/v2/domain"
 )
 
 // DeleteAPI provides methods for deleting time series data from buckets.

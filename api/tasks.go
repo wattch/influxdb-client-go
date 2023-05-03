@@ -9,7 +9,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/wattch/influxdb-client-go/v2/domain"
+	"github.com/influxdata/influxdb-client-go/v2/domain"
 )
 
 // TaskFilter defines filtering options for FindTasks functions.

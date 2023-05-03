@@ -7,7 +7,7 @@ package api
 import (
 	"context"
 
-	"github.com/wattch/influxdb-client-go/v2/domain"
+	"github.com/influxdata/influxdb-client-go/v2/domain"
 )
 
 // AuthorizationsAPI provides methods for organizing Authorization in a InfluxDB server

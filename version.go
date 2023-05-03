@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/wattch/influxdb-client-go/v2/internal/http"
+	"github.com/influxdata/influxdb-client-go/v2/internal/http"
 )
 
 const (

@@ -1,8 +1,8 @@
 # InfluxDB Client Go
 
-[![CircleCI](https://circleci.com/gh/wattch/influxdb-client-go.svg?style=svg)](https://circleci.com/gh/wattch/influxdb-client-go)
-[![codecov](https://codecov.io/gh/wattch/influxdb-client-go/branch/master/graph/badge.svg)](https://codecov.io/gh/wattch/influxdb-client-go)
-[![License](https://img.shields.io/github/license/wattch/influxdb-client-go.svg)](https://github.com/wattch/influxdb-client-go/blob/master/LICENSE)
+[![CircleCI](https://circleci.com/gh/influxdata/influxdb-client-go.svg?style=svg)](https://circleci.com/gh/influxdata/influxdb-client-go)
+[![codecov](https://codecov.io/gh/influxdata/influxdb-client-go/branch/master/graph/badge.svg)](https://codecov.io/gh/influxdata/influxdb-client-go)
+[![License](https://img.shields.io/github/license/influxdata/influxdb-client-go.svg)](https://github.com/influxdata/influxdb-client-go/blob/master/LICENSE)
 [![Slack Status](https://img.shields.io/badge/slack-join_chat-white.svg?logo=slack&style=social)](https://www.influxdata.com/slack)
 
 This repository contains the reference Go client for InfluxDB 2.
@@ -34,8 +34,8 @@ This repository contains the reference Go client for InfluxDB 2.
         - [How to queries](#queries)
     - Writing data using
         - [Line Protocol](https://docs.influxdata.com/influxdb/v2.0/reference/syntax/line-protocol/)
-        - [Data Point](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api/write#Point)
-        - Both [asynchronous](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPI) or [synchronous](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPIBlocking) ways
+        - [Data Point](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api/write#Point)
+        - Both [asynchronous](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPI) or [synchronous](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPIBlocking) ways
         - [How to writes](#writes)
     - InfluxDB 2 API
         - setup, ready, health
@@ -49,7 +49,7 @@ This section contains links to the client library documentation.
 
 - [Product documentation](https://docs.influxdata.com/influxdb/v2.0/tools/client-libraries/), [Getting Started](#how-to-use)
 - [Examples](#examples)
-- [API Reference](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2)
+- [API Reference](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2)
 - [Changelog](CHANGELOG.md)
 
 ### Examples
@@ -57,8 +57,8 @@ This section contains links to the client library documentation.
 Examples for basic writing and querying data are shown below in this document
 
 There are also other examples in the API docs:
- - [Client usage](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2?tab=doc#pkg-examples)
- - [Management APIs](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api?tab=doc#pkg-examples)
+ - [Client usage](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2?tab=doc#pkg-examples)
+ - [Management APIs](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api?tab=doc#pkg-examples)
 
 ## How To Use
 
@@ -68,12 +68,12 @@ There are also other examples in the API docs:
 #### Go mod project
 1.  Add the latest version of the client package to your project dependencies (go.mod).
     ```sh
-    go get github.com/wattch/influxdb-client-go/v2
+    go get github.com/influxdata/influxdb-client-go/v2
     ```
-1. Add import `github.com/wattch/influxdb-client-go/v2` to your source code.
+1. Add import `github.com/influxdata/influxdb-client-go/v2` to your source code.
 #### GOPATH project
     ```sh
-    go get github.com/wattch/influxdb-client-go
+    go get github.com/influxdata/influxdb-client-go
     ```
 Note: To have _go get_ in the GOPATH mode, the environment variable `GO111MODULE` must have the `off` value.
 
@@ -87,7 +87,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -144,7 +144,7 @@ func main() {
 }
 ```
 ### Options
-The InfluxDBClient uses set of options to configure behavior. These are available in the [Options](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Options) object
+The InfluxDBClient uses set of options to configure behavior. These are available in the [Options](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Options) object
 Creating a client instance using
 ```go
 client := influxdb2.NewClient("http://localhost:8086", "my-token")
@@ -171,8 +171,8 @@ written to the underlying buffer and they are automatically sent to a server whe
 Writes are automatically retried on server back pressure.
 
 This write client also offers synchronous blocking method to ensure that write buffer is flushed and all pending writes are finished,
-see [Flush()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPI.Flush) method.
-Always use [Close()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Close) method of the client to stop all background processes.
+see [Flush()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPI.Flush) method.
+Always use [Close()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Close) method of the client to stop all background processes.
 
 Asynchronous write client is recommended for frequent periodic writes.
 
@@ -184,7 +184,7 @@ import (
     "math/rand"
     "time"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -245,12 +245,12 @@ Retry delays are by default randomly distributed within the ranges:
 
 Setting _retryInterval_ to 0 disables retry strategy and any failed write will discard the batch.
 
-[WriteFailedCallback](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteFailedCallback) allows advanced controlling of retrying.
+[WriteFailedCallback](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteFailedCallback) allows advanced controlling of retrying.
 It is synchronously notified in case async write fails.
 It controls further batch handling by its return value. If it returns `true`, WriteAPI continues with retrying of writes of this batch. Returned `false` means the batch should be discarded.
 
 ### Reading async errors
-WriteAPI automatically logs write errors. Use [Errors()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPI.Errors) method, which returns the channel for reading errors occuring during async writes, for writing write error to a custom target:
+WriteAPI automatically logs write errors. Use [Errors()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPI.Errors) method, which returns the channel for reading errors occuring during async writes, for writing write error to a custom target:
 
 ```go
 package main
@@ -260,7 +260,7 @@ import (
     "math/rand"
     "time"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -312,7 +312,7 @@ import (
     "math/rand"
     "time"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -350,7 +350,7 @@ func main() {
 ```
 
 ### Queries
-Query client offers retrieving of query results to a parsed representation in a [QueryTableResult](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#QueryTableResult) or to a raw string.
+Query client offers retrieving of query results to a parsed representation in a [QueryTableResult](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#QueryTableResult) or to a raw string.
 
 ### QueryTableResult
 QueryTableResult offers comfortable way how to deal with flux query CSV response. It parses CSV stream into FluxTableMetaData, FluxColumn and FluxRecord objects
@@ -363,7 +363,7 @@ import (
     "context"
     "fmt"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -396,7 +396,7 @@ func main() {
 ```
 
 ### Raw
-[QueryRaw()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#QueryAPI.QueryRaw) returns raw, unparsed, query result string and process it on your own. Returned csv format
+[QueryRaw()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#QueryAPI.QueryRaw) returns raw, unparsed, query result string and process it on your own. Returned csv format
 can be controlled by the third parameter, query dialect.
 
 ```go
@@ -406,7 +406,7 @@ import (
     "context"
     "fmt"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -449,7 +449,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/wattch/influxdb-client-go/v2"
+	"github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {
@@ -540,8 +540,8 @@ import (
 	"sync"
 	"time"
 
-	influxdb2 "github.com/wattch/influxdb-client-go"
-	"github.com/wattch/influxdb-client-go/v2/api/write"
+	influxdb2 "github.com/influxdata/influxdb-client-go"
+	"github.com/influxdata/influxdb-client-go/v2/api/write"
 )
 
 func main() {
@@ -623,11 +623,11 @@ There are three functions for checking whether a server is up and ready for comm
 
 | Function| Description | Availability |
 |:----------|:----------|:----------|
-| [Health()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Health) | Detailed info about the server status, along with version string | OSS |
-| [Ready()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Ready) | Server uptime info | OSS |
-| [Ping()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Ping) | Whether a server is up | OSS, Cloud |
+| [Health()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Health) | Detailed info about the server status, along with version string | OSS |
+| [Ready()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Ready) | Server uptime info | OSS |
+| [Ping()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Ping) | Whether a server is up | OSS, Cloud |
 
-Only the [Ping()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Ping) function works in InfluxDB Cloud server.
+Only the [Ping()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Ping) function works in InfluxDB Cloud server.
 
 ## InfluxDB 1.8 API compatibility
 
@@ -642,9 +642,9 @@ Only the [Ping()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Cli
 
   | API | Endpoint | Description |
   |:----------|:----------|:----------|
-  | [WriteAPI](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPI) (also [WriteAPIBlocking](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#WriteAPIBlocking))| [/api/v2/write](https://docs.influxdata.com/influxdb/v2.0/write-data/developer-tools/api/) | Write data to InfluxDB 1.8.0+ using the InfluxDB 2.0 API |
-  | [QueryAPI](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2/api#QueryAPI) | [/api/v2/query](https://docs.influxdata.com/influxdb/v2.0/query-data/execute-queries/influx-api/) | Query data in InfluxDB 1.8.0+ using the InfluxDB 2.0 API and [Flux](https://docs.influxdata.com/flux/latest/) endpoint should be enabled by the [`flux-enabled` option](https://docs.influxdata.com/influxdb/v1.8/administration/config/#flux-enabled-false)
-  | [Health()](https://pkg.go.dev/github.com/wattch/influxdb-client-go/v2#Client.Health) | [/health](https://docs.influxdata.com/influxdb/v2.0/api/#tag/Health) | Check the health of your InfluxDB instance |
+  | [WriteAPI](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPI) (also [WriteAPIBlocking](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#WriteAPIBlocking))| [/api/v2/write](https://docs.influxdata.com/influxdb/v2.0/write-data/developer-tools/api/) | Write data to InfluxDB 1.8.0+ using the InfluxDB 2.0 API |
+  | [QueryAPI](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2/api#QueryAPI) | [/api/v2/query](https://docs.influxdata.com/influxdb/v2.0/query-data/execute-queries/influx-api/) | Query data in InfluxDB 1.8.0+ using the InfluxDB 2.0 API and [Flux](https://docs.influxdata.com/flux/latest/) endpoint should be enabled by the [`flux-enabled` option](https://docs.influxdata.com/influxdb/v1.8/administration/config/#flux-enabled-false)
+  | [Health()](https://pkg.go.dev/github.com/influxdata/influxdb-client-go/v2#Client.Health) | [/health](https://docs.influxdata.com/influxdb/v2.0/api/#tag/Health) | Check the health of your InfluxDB instance |
 
 
 ### Example
@@ -656,7 +656,7 @@ import (
     "fmt"
     "time"
 
-    "github.com/wattch/influxdb-client-go/v2"
+    "github.com/influxdata/influxdb-client-go/v2"
 )
 
 func main() {

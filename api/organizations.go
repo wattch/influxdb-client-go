@@ -8,7 +8,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/wattch/influxdb-client-go/v2/domain"
+	"github.com/influxdata/influxdb-client-go/v2/domain"
 )
 
 // OrganizationsAPI provides methods for managing Organizations in a InfluxDB server.

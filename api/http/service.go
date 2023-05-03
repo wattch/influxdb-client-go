@@ -22,8 +22,8 @@ import (
 	"net/url"
 	"strconv"
 
-	http2 "github.com/wattch/influxdb-client-go/v2/internal/http"
-	"github.com/wattch/influxdb-client-go/v2/internal/log"
+	http2 "github.com/influxdata/influxdb-client-go/v2/internal/http"
+	"github.com/influxdata/influxdb-client-go/v2/internal/log"
 )
 
 // RequestCallback defines function called after a request is created before any call
