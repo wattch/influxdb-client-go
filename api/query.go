@@ -232,7 +232,10 @@ func (q *queryAPI) QueryWithParams(ctx context.Context, query string, params int
 }
 
 func (q *queryAPI) queryURL() (string, error) {
-	if q.url == "" {
+	q.lock.Lock()
+	queryURL := q.url
+	q.lock.Unlock()
+	if queryURL == "" {
 		u, err := url.Parse(q.httpService.ServerAPIURL())
 		if err != nil {
 			return "", err
@@ -244,9 +247,10 @@ func (q *queryAPI) queryURL() (string, error) {
 		u.RawQuery = params.Encode()
 		q.lock.Lock()
 		q.url = u.String()
+		queryURL = q.url
 		q.lock.Unlock()
 	}
-	return q.url, nil
+	return queryURL, nil
 }
 
 // checkParamsType validates the value is struct with simple type fields

@@ -1061,6 +1061,29 @@ func TestQueryParamsSerialized(t *testing.T) {
 
 }
 
+func TestParallelQueries(t *testing.T) {
+	const nParallelQueries = 10
+	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/csv")
+		w.WriteHeader(http.StatusOK)
+	}))
+	defer server.Close()
+
+	queryAPI := NewQueryAPI("org", http2.NewService(server.URL, "a", http2.DefaultOptions()))
+	errors := make(chan error, nParallelQueries)
+	for i := 0; i < nParallelQueries; i++ {
+		go func() {
+			_, err := queryAPI.Query(context.Background(), "")
+			errors <- err
+		}()
+	}
+
+	for i := 0; i < nParallelQueries; i++ {
+		err := <-errors
+		require.NoError(t, err)
+	}
+}
+
 func makeCSVstring(rows []string) string {
 	csvTable := strings.Join(rows, "\r\n")
 	return fmt.Sprintf("%s\r\n", csvTable)
