@@ -18,12 +18,12 @@ import (
 	"sync"
 	"time"
 
-	http2 "github.com/influxdata/influxdb-client-go/v2/api/http"
-	"github.com/influxdata/influxdb-client-go/v2/api/write"
-	"github.com/influxdata/influxdb-client-go/v2/internal/gzip"
-	"github.com/influxdata/influxdb-client-go/v2/internal/log"
-	ilog "github.com/influxdata/influxdb-client-go/v2/log"
 	lp "github.com/influxdata/line-protocol"
+	http2 "github.com/wattch/influxdb-client-go/v2/api/http"
+	"github.com/wattch/influxdb-client-go/v2/api/write"
+	"github.com/wattch/influxdb-client-go/v2/internal/gzip"
+	"github.com/wattch/influxdb-client-go/v2/internal/log"
+	ilog "github.com/wattch/influxdb-client-go/v2/log"
 )
 
 // Batch holds information for sending points batch

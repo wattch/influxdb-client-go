@@ -24,11 +24,11 @@ import (
 	"sync"
 	"time"
 
-	http2 "github.com/influxdata/influxdb-client-go/v2/api/http"
-	"github.com/influxdata/influxdb-client-go/v2/api/query"
-	"github.com/influxdata/influxdb-client-go/v2/domain"
-	"github.com/influxdata/influxdb-client-go/v2/internal/log"
-	ilog "github.com/influxdata/influxdb-client-go/v2/log"
+	http2 "github.com/wattch/influxdb-client-go/v2/api/http"
+	"github.com/wattch/influxdb-client-go/v2/api/query"
+	"github.com/wattch/influxdb-client-go/v2/domain"
+	"github.com/wattch/influxdb-client-go/v2/internal/log"
+	ilog "github.com/wattch/influxdb-client-go/v2/log"
 )
 
 const (

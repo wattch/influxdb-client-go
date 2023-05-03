@@ -10,9 +10,9 @@ import (
 	"sync"
 	"sync/atomic"
 
-	http2 "github.com/influxdata/influxdb-client-go/v2/api/http"
-	"github.com/influxdata/influxdb-client-go/v2/api/write"
-	iwrite "github.com/influxdata/influxdb-client-go/v2/internal/write"
+	http2 "github.com/wattch/influxdb-client-go/v2/api/http"
+	"github.com/wattch/influxdb-client-go/v2/api/write"
+	iwrite "github.com/wattch/influxdb-client-go/v2/internal/write"
 )
 
 // WriteAPIBlocking offers blocking methods for writing time series data synchronously into an InfluxDB server.
@@ -118,7 +118,7 @@ func (w *writeAPIBlocking) flush(ctx context.Context) error {
 		body := strings.Join(w.batch, "\n")
 		w.batch = w.batch[:0]
 		b := iwrite.NewBatch(body, w.writeOptions.MaxRetryTime())
-		if err:= w.service.WriteBatch(ctx, b); err != nil {
+		if err := w.service.WriteBatch(ctx, b); err != nil {
 			return err
 		}
 	}

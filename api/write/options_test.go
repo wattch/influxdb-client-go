@@ -5,11 +5,12 @@
 package write_test
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 	"time"
 
-	"github.com/influxdata/influxdb-client-go/v2/api/write"
+	"github.com/stretchr/testify/assert"
+
+	"github.com/wattch/influxdb-client-go/v2/api/write"
 )
 
 func TestDefaultOptions(t *testing.T) {

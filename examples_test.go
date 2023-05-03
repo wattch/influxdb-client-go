@@ -8,8 +8,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/influxdata/influxdb-client-go/v2"
-	"github.com/influxdata/influxdb-client-go/v2/domain"
+	influxdb2 "github.com/wattch/influxdb-client-go/v2"
+	"github.com/wattch/influxdb-client-go/v2/domain"
 )
 
 func ExampleClient_newClient() {

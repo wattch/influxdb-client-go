@@ -7,7 +7,6 @@ package influxdb2
 import (
 	"context"
 	"fmt"
-	ilog "github.com/influxdata/influxdb-client-go/v2/log"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -16,12 +15,14 @@ import (
 	"testing"
 	"time"
 
-	ihttp "github.com/influxdata/influxdb-client-go/v2/api/http"
-	"github.com/influxdata/influxdb-client-go/v2/domain"
-	http2 "github.com/influxdata/influxdb-client-go/v2/internal/http"
-	iwrite "github.com/influxdata/influxdb-client-go/v2/internal/write"
+	ilog "github.com/wattch/influxdb-client-go/v2/log"
+
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	ihttp "github.com/wattch/influxdb-client-go/v2/api/http"
+	"github.com/wattch/influxdb-client-go/v2/domain"
+	http2 "github.com/wattch/influxdb-client-go/v2/internal/http"
+	iwrite "github.com/wattch/influxdb-client-go/v2/internal/write"
 )
 
 func TestUrls(t *testing.T) {

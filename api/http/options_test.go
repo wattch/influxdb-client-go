@@ -6,13 +6,14 @@ package http_test
 
 import (
 	"crypto/tls"
-	"github.com/stretchr/testify/require"
 	nethttp "net/http"
 	"testing"
 	"time"
 
-	"github.com/influxdata/influxdb-client-go/v2/api/http"
+	"github.com/stretchr/testify/require"
+
 	"github.com/stretchr/testify/assert"
+	"github.com/wattch/influxdb-client-go/v2/api/http"
 )
 
 func TestDefaultOptions(t *testing.T) {
